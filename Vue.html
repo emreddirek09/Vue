@@ -11,15 +11,22 @@
         <input type="text" v-on:input="Emre"> 
         <p>
         {{message}}
-        </p>        
+        </p>
+        <a v-bind:href="link">Vue Link Bind Etme</a>   
+        <p v-html="blogLink">
+          
+        </p>     
       </div>
 </body>
 <script>
-    var app = new Vue({
+//Anttribute değerleri değiştirmek için v-binde kullanılır.
+var app = new Vue({
   el: '#app',
   data: {
   title:'Merhaba Dünya',
-    message: 'Vue çalışıyorum.!'    
+    message: 'Vue çalışıyorum.!',
+    link: 'https://www.google.com', 
+    blogLink:"<a href='https://www.youtube.com'> HTML İÇERİSİNDEN LİNK GÖNDERME</a>" 
   },
   methods:{
   Emre:function(event){
