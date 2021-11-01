@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Bölüm Sonu Çalışması 2</title>
+</head>
+<body>
+    <div id="vue-bölüm-sonu2">
+        <div>
+            <button v-on:click="ButonaTiklandi"> Butona Tıklandı</button>
+        </div>
+        <div>
+            <input type="text" v-on:input.keydown="inputKey">
+            <p>{{ message }}</p>
+        </div>
+        <div>
+            <input type="text" v-on:keyup.enter="enter_input">
+            <h1>{{ yeni_message }}</h1>
+        </div>
+            
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el:'#vue-bölüm-sonu2',
+        data:{
+            message:"",
+            yeni_message:""
+        },
+        methods:{
+            ButonaTiklandi:function(){
+                alert("Hello World");                  
+            },
+            inputKey:function(event){
+                this.message = event.target.value
+                enter_input.value = event.target.value
+            },
+            enter_input:function(event){
+                this.yeni_message = event.target.value
+            }
+        }
+    })
+</script>
+
+</html>

@@ -9,21 +9,23 @@
 </head>
 
 <body>
-    <div v-on:mousemove="koordinatBulma" id="vue1">            
-            Mouse Kordinatları : {{ x }} , {{ y }}   
+    <div id="vue1">
+        <div v-on:mousemove="koordinatBulma" style="width:100%; height:100%;">
+            Mouse Kordinatları : {{ x }} , {{ y }} </br>
+            <span v-on:mousemove.stop> Stop İle Mouse eventi durduruluyor. </span>
+        </div>
     </div>
-
 </body>
 
 <script>
     var vu = new Vue({
         el: '#vue1',
         data: {
-            x:0,
-            y:0
+            x: 0,
+            y: 0
         },
-        methods: {          
-            koordinatBulma:function(event){
+        methods: {
+            koordinatBulma: function (event) {
                 this.x = event.clientX;
                 this.y = event.clientY;
             }

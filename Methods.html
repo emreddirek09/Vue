@@ -12,12 +12,12 @@
     <div id="vue1">
         <p v-once>{{title}}</p>
         <p>{{vueMethods()}}</p>
-        <button v-on:click="eventsAlert">Aler Çağırma</button>
-        <button v-on:click="NumberArttir">Arttır</button>
+        <button v-on:click="eventsAlert('Emre')">Aler Çağırma</button>
+        <button v-on:click="NumberArttir(3)">Arttır</button>
         <button v-on:click="NumberAzalt">Azalt</button>
         <h1>{{buttoneventdeneme}}</h1>
+        <input type="text" v-on:keyup.enter.space="keyupEvent">
     </div>
-
 </body>
 
 <script>
@@ -33,14 +33,19 @@
                 this.title = "İlk Renderden sonra data nın içindeki title verisini değiştirip getirir. Bu işlemi html de v-once ile yaparız."
                 return this.title + this.message
             },
-            eventsAlert: function () {
-                alert("Bir Yeni Mesajınız var!!!!"); // v-on:click button ile alert çağır.
+            eventsAlert: function (name) {
+                alert(name); // alerti event içerisinde gönderme
+                //alert("Bir Yeni Mesajınız var!!!!"); // v-on:click button ile alert çağır.
             },
-            NumberArttir: function () {
-                this.buttoneventdeneme++
+            NumberArttir: function (sayiarttir) {
+                //this.buttoneventdeneme++ //sayıları tek tek arttırma
+                this.buttoneventdeneme += sayiarttir;
             },
             NumberAzalt: function () {
                 this.buttoneventdeneme--
+            },
+            keyupEvent:function(event){
+                alert(event.target.value); // v-on:keyup.enter ile input içerisindeki değeri enter ya da space komutu ile alert etme.
             }
         }
 
