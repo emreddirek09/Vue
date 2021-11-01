@@ -11,11 +11,12 @@
 <body>
     <div id="vue1">
         <p v-once>{{title}}</p>
-        <p>{{vueMethods()}}</p>
+        <p>{{vueMethods()}}</p><br>
         <button v-on:click="eventsAlert('Emre')">Aler Çağırma</button>
         <button v-on:click="NumberArttir(3)">Arttır</button>
         <button v-on:click="NumberAzalt">Azalt</button>
-        <h1>{{buttoneventdeneme}}</h1>
+        <h1>{{counter}}</h1>
+        <p style="color: brown;">Counter: {{ counter>10 ? "counter 10'dan büyük.": "counter 10'dan küçük. " }}</p>
         <input type="text" v-on:keyup.enter.space="keyupEvent">
     </div>
 </body>
@@ -26,7 +27,7 @@
         data: {
             title: "Merhaba Dünya,",
             message: "Deneme Yapıyorum...",
-            buttoneventdeneme: 0
+            counter: 0
         },
         methods: {
             vueMethods: function () {
@@ -38,11 +39,11 @@
                 //alert("Bir Yeni Mesajınız var!!!!"); // v-on:click button ile alert çağır.
             },
             NumberArttir: function (sayiarttir) {
-                //this.buttoneventdeneme++ //sayıları tek tek arttırma
-                this.buttoneventdeneme += sayiarttir;
+                //this.counter++ //sayıları tek tek arttırma
+                this.counter += sayiarttir;
             },
             NumberAzalt: function () {
-                this.buttoneventdeneme--
+                this.counter--
             },
             keyupEvent:function(event){
                 alert(event.target.value); // v-on:keyup.enter ile input içerisindeki değeri enter ya da space komutu ile alert etme.
