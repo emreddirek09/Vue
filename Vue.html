@@ -7,7 +7,7 @@
         <h1>
         {{ title }}
         </h1>
-        <input type="text" v-on:input="Emre"> 
+        <input type="text" v-on:input="Emre" v-model="message"> <!-- v-model: script içindeki datayı inputa yazdırıp iki yönlü etkileşim sağlar. --> 
         <p>
         {{message}}
         </p>
