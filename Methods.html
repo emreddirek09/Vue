@@ -12,9 +12,9 @@
     <div id="vue1">
         <p v-once>{{title}}</p>
         <p>{{vueMethods()}}</p><br>
-        <button v-on:click="eventsAlert('Emre')">Aler Çağırma</button>
-        <button v-on:click="NumberArttir(3)">Arttır</button>
-        <button v-on:click="NumberAzalt">Azalt</button>
+        <button @click="eventsAlert('Emre')">Aler Çağırma</button>
+        <button @click="NumberArttir(3)">Arttır</button><!-- v-on yerine (@) kullanıllıyor kısaltma olarak-->
+        <button @click="NumberAzalt">Azalt</button>
         <h1>{{counter}}</h1>
         <p style="color: brown;">Counter: {{ counter>10 ? "counter 10'dan büyük.": "counter 10'dan küçük. " }}</p>
         <input type="text" v-on:keyup.enter.space="keyupEvent">
