@@ -1,0 +1,46 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="exercise"> 
+    <div>
+        <p>Şuanki Değer: {{ value }}</p>
+        <p>{{ yeni() }}</p>
+        <button @click="value+=5">Add 5</button>
+        <button @click="value+=1">Add 1</button>
+        <button @click="value-=1">Dec 1</button>
+        <p>{{ result }}</p>
+    </div>
+    <!-- 2) result property' değerini izleyerek 5 saniye sonra value'nun değerini sıfırlayınız. (ipucu: setTimeout(..., 5000) kullanılabilir.-->
+    <div>
+        <input type="text" v-model="value2">
+        <p>{{ value2 }}</p>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el:'#exercise',
+        data:{
+            value:0,
+            value2:'',
+            result:""
+        },
+        methods:{
+            yeni:function(){
+                this.result = this.value != 33 ? "Henüz Bitmedi!!" : "Tamamlandı" 
+                if (this.value > 33)
+                this.result = "Value Değeri 33 den fazla Lütfen value değerini 33 yapınız."                                     
+            },
+            
+        },
+        watch: {
+            value:function (value) {
+             vm = this;
+                setTimeout(function(){
+                    vm.value = 0;
+                }, vm.value2);
+            }  
+        }
+        
+    })
+</script>
+
