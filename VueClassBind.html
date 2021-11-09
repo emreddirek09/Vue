@@ -14,7 +14,11 @@
         <div class="box hotpink"></div>
         <div @click="yeniclass = !yeniclass"  :class="divclass" class="box"></div>
         <div class="box" :class="[color,divclass]"></div><br>
+        <div class="box" :style="{ 'background-color' : color}"></div>
+        <div class="box" :style="[yeniStyle]"></div>
+        <div class="box" :style="[yeniStyle , {width: height+'px'} ]"></div><br>
         <input type="text" v-model="color">
+        <input type="text" v-model="height">
     </div>
 </body>
 
@@ -25,13 +29,20 @@
         el: "#ap",
         data: {
             yeniclass : false,
-            color: "green"
+            color: "green",
+            height:100
         },
-        computed:{ //Vue ile div class object kontrol etme
+        computed:{ //Vue ile div class-style object kontrol etme
             divclass:function(){
                 return {
                     hotpink : this.yeniclass,
                     yellow : !this.yeniclass
+                }
+            },
+            yeniStyle:function(){
+                return{
+                    backgroundColor : this.color,
+                    height : this.height +"px"
                 }
             }
         }
